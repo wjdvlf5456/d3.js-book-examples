@@ -15,6 +15,9 @@ var svg = d3.select("#graph")
         .attr("width", width)
         .attr("height", height);
 
+
+// 데이터 가져오기
+// d3.json('파일명', function (data) {});
 d3.json('histogram-hours.json', function (data) {
 
     data = d3.keys(data).map(function (key) {
@@ -39,7 +42,7 @@ d3.json('histogram-hours.json', function (data) {
         .data(data)
         .enter()
         .append('rect')
-        .attr('class', 'bar')
+        .attr('class', 'bar')		//그래프모양이 바뀌지는 않는다.
         .attr('x', function (d) { return x(d.bucket); })
         .attr('width', x.rangeBand())
         .attr('y', height-pad)
